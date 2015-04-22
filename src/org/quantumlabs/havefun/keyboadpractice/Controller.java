@@ -56,7 +56,8 @@ public class Controller implements IInputDelegater, IControlDelegater, KeyBoardP
 
     public void showTheResult(KeyBoardPracticeModel.Result result) {
         LOG.info("showTheResult(): engine state:" + examEngine);
-        display.showResult(String.format("\nCorrection:%s\nError:%s\nTimeout:%s\nDuration:%s''\n", result.correction, result.failure, result.timeout, result.durationInSeconds));
+        display.showResult(String.format("\nCorrection rate:%s\nCorrection:%s\nError:%s\nTimeout:%s\nDuration:%s''\n", result.correction / (result.correction + result.failure + result.timeout
+        ), (int) (result.correction), (int) (result.failure), (int) (result.timeout), result.durationInSeconds));
         LOG.info("showTheResult():" + result);
     }
 
