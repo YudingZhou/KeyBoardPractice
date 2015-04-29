@@ -170,6 +170,7 @@ public class KeyBoardPracticeModel {
         }
         reset();
         notifyExamFinished();
+        Persistence.INSTANCE.finalize(result);
         return result;
     }
 
